@@ -1,0 +1,8 @@
+Pillow
+pyautogui
+tk
+watchdog
+google-cloud-vision
+pyttsx3
+keyboard
+configparser

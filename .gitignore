@@ -1,3 +1,8 @@
+#local files
+config.env.ini
+credentials.json
+*.log
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
