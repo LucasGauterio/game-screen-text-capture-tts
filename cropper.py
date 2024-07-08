@@ -18,6 +18,7 @@ logging.basicConfig(level = logging.INFO,
 
 # Global variables
 mouse_start = None
+rect_id = None
 
 # Save the cropped image to the monitored folder
 folder_to_monitor = config.get("configuration","folder_to_monitor")
@@ -40,7 +41,7 @@ def on_mouse_down(event):
 def on_mouse_release(event):
     try:
         logging.info(f"record mouse release {event}")
-        global mouse_start, screenshot_img
+        global mouse_start, screenshot_img, rect_id
 
         mouse_end = (event.x, event.y)
 
@@ -66,6 +67,15 @@ def on_mouse_release(event):
 
     # Close the window
     root.destroy()
+
+def on_mouse_motion(event):
+    global mouse_start, rect_id
+    if mouse_start:
+        if rect_id:
+            canvas.delete(rect_id)
+        x1, y1 = mouse_start
+        x2, y2 = event.x, event.y
+        rect_id = canvas.create_rectangle(x1, y1, x2, y2, outline="red")
 
 if __name__ == "__main__":
     try:
@@ -94,6 +104,7 @@ if __name__ == "__main__":
 
         # Bind mouse events
         canvas.bind("<ButtonPress-1>", on_mouse_down)
+        canvas.bind("<B1-Motion>", on_mouse_motion)
         canvas.bind("<ButtonRelease-1>", on_mouse_release)
 
         root.mainloop()

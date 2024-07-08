@@ -60,7 +60,7 @@ pip install -r requirements.txt
 
 ### Keyboard Shortcuts
 
-- **Capture Screenshot**: Press `Shift+Print Screen` and use the mouse to select the area of the screen to capture.
+- **Capture Screenshot**: Press `Shift+Print Screen`, `click and hold left mouse button` to select the area of the screen to capture.
 - **Exit Application**: Press `Ctrl+C` on terminal/console
 
 ### How It Works
